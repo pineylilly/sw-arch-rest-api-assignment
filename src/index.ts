@@ -27,6 +27,18 @@ const app = new Elysia()
         message: "Not Found 🦊"
       }
     }
+    if (code === 'VALIDATION') {
+      set.status = 400
+      return {
+        message: "Bad Request 🦊",
+      }
+    }
+    if (code === "INTERNAL_SERVER_ERROR") {
+      set.status = 500
+      return {
+        message: "Internal Server Error 🦊"
+      }
+    }
   })
 
   .get("/", () => "Welcome to backend server")
